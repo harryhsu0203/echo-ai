@@ -1,69 +1,199 @@
-import { useId } from "react";
-
 const servicePalettes = {
-  chat: ["#5b78ff", "#8b62ff"],
-  workflow: ["#4f8bff", "#53b7ff"],
-  knowledge: ["#4f72ff", "#7a88ff"],
-  automation: ["#5974ff", "#59d4ff"],
-  custom: ["#725fff", "#a35cff"],
-  consulting: ["#567bff", "#8e74ff"]
+  chat: ["#5f78ff", "#8d62ff", "#59d2ff"],
+  workflow: ["#4f8bff", "#52bbff", "#6f6bff"],
+  knowledge: ["#4f72ff", "#7a88ff", "#5ec9ff"],
+  automation: ["#5974ff", "#59d4ff", "#7c65ff"],
+  custom: ["#725fff", "#a35cff", "#5f95ff"],
+  consulting: ["#567bff", "#8e74ff", "#52c3ff"]
 };
 
 const casePalettes = {
-  restaurant: ["#6578ff", "#875dff"],
-  commerce: ["#4f8bff", "#5ac2ff"],
-  service: ["#5372ff", "#7f68ff"],
-  internal: ["#4e74ff", "#66a7ff"]
+  restaurant: ["#6578ff", "#875dff", "#5ac4ff"],
+  commerce: ["#4f8bff", "#5ac2ff", "#6f6bff"],
+  service: ["#5372ff", "#7f68ff", "#5ed2ff"],
+  internal: ["#4e74ff", "#66a7ff", "#7c62ff"]
 };
 
-export function ServiceArt({ type }) {
-  const gradientId = `${useId().replace(/:/g, "")}-service`;
-  const [c1, c2] = servicePalettes[type] || servicePalettes.chat;
+const toStyleVars = (palette) => ({
+  "--tone-a": palette[0],
+  "--tone-b": palette[1],
+  "--tone-c": palette[2]
+});
+
+function ChatMockup({ palette }) {
+  const messages = [
+    { id: 1, role: "user", avatar: "U", text: "請問今天還有晚餐預約嗎？", time: "09:41" },
+    { id: 2, role: "ai", avatar: "AI", text: "今晚 19:30 還有 2 位名額，可直接保留。", time: "09:41" },
+    { id: 3, role: "user", avatar: "U", text: "可同步到 CRM 嗎？", time: "09:42" },
+    { id: 4, role: "ai", avatar: "AI", text: "已同步，並更新顧客標籤與跟進提醒。", time: "09:42" }
+  ];
 
   return (
-    <svg viewBox="0 0 460 280" className="generated-art" aria-hidden="true">
-      <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={c1} />
-          <stop offset="100%" stopColor={c2} />
-        </linearGradient>
-      </defs>
-      <rect x="10" y="10" width="440" height="260" rx="26" fill="#fff" stroke="#d8e2fb" strokeWidth="2.6" />
-      <rect x="34" y="34" width="392" height="32" rx="14" fill={`url(#${gradientId})`} opacity="0.16" />
-      <rect x="34" y="84" width="230" height="18" rx="9" fill="#edf2ff" />
-      <rect x="34" y="112" width="312" height="18" rx="9" fill="#edf2ff" />
-      <rect x="34" y="142" width="134" height="100" rx="18" fill={`url(#${gradientId})`} opacity="0.18" />
-      <rect x="182" y="142" width="122" height="100" rx="18" fill={`url(#${gradientId})`} opacity="0.12" />
-      <rect x="316" y="142" width="110" height="100" rx="18" fill={`url(#${gradientId})`} opacity="0.22" />
-      <circle cx="78" cy="188" r="17" fill={`url(#${gradientId})`} />
-      <path d="M106 188h48" stroke="#43538a" strokeWidth="6" strokeLinecap="round" />
-      <circle cx="235" cy="188" r="14" fill="#fff" stroke="#95a8df" strokeWidth="3" />
-      <path d="M335 188h58" stroke="#354b86" strokeWidth="7" strokeLinecap="round" />
-      <path d="M335 206h42" stroke="#5a70ac" strokeWidth="5" strokeLinecap="round" />
-    </svg>
+    <div className="generated-art mockup-art mockup-chat" style={toStyleVars(palette)} aria-hidden="true">
+      <div className="mockup-orb orb-a" />
+      <div className="mockup-orb orb-b" />
+      <div className="mockup-window">
+        <div className="mockup-topbar">
+          <div className="dot-group">
+            <span />
+            <span />
+            <span />
+          </div>
+          <strong>EchoChat Console</strong>
+          <small>Live</small>
+        </div>
+        <div className="chat-thread">
+          {messages.map((msg) => (
+            <div key={msg.id} className={`chat-line ${msg.role === "ai" ? "is-ai" : "is-user"}`}>
+              <span className="chat-avatar">{msg.avatar}</span>
+              <div className="chat-bubble-wrap">
+                <p>{msg.text}</p>
+                <small>{msg.time}</small>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
-export function CaseArt({ type }) {
-  const gradientId = `${useId().replace(/:/g, "")}-case`;
-  const [c1, c2] = casePalettes[type] || casePalettes.restaurant;
+function WorkflowMockup({ palette }) {
+  const nodes = ["LINE", "Intent Router", "Knowledge Base", "CRM Sync"];
+  const stats = [
+    { label: "Flow Success", value: "98%" },
+    { label: "Avg Runtime", value: "1.8s" },
+    { label: "Automation", value: "72%" }
+  ];
 
   return (
-    <svg viewBox="0 0 340 190" className="case-art" aria-hidden="true">
-      <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={c1} />
-          <stop offset="100%" stopColor={c2} />
-        </linearGradient>
-      </defs>
-      <rect x="8" y="8" width="324" height="174" rx="20" fill="#fff" stroke="#d8e2fb" strokeWidth="2.3" />
-      <rect x="24" y="22" width="292" height="38" rx="12" fill={`url(#${gradientId})`} opacity="0.2" />
-      <rect x="24" y="74" width="130" height="94" rx="17" fill={`url(#${gradientId})`} opacity="0.2" />
-      <rect x="166" y="74" width="150" height="22" rx="11" fill="#e9efff" />
-      <rect x="166" y="106" width="122" height="22" rx="11" fill="#e9efff" />
-      <rect x="166" y="138" width="96" height="22" rx="11" fill="#e9efff" />
-      <circle cx="61" cy="120" r="18" fill={`url(#${gradientId})`} />
-      <path d="M85 120h54" stroke="#42558f" strokeWidth="6" strokeLinecap="round" />
-    </svg>
+    <div className="generated-art mockup-art mockup-workflow" style={toStyleVars(palette)} aria-hidden="true">
+      <div className="mockup-orb orb-a" />
+      <div className="mockup-orb orb-b" />
+      <div className="mockup-window">
+        <div className="mockup-topbar">
+          <div className="dot-group">
+            <span />
+            <span />
+            <span />
+          </div>
+          <strong>Automation Flow</strong>
+          <small>Stable</small>
+        </div>
+        <div className="flow-layout">
+          <div className="flow-track">
+            {nodes.map((node) => (
+              <div key={node} className="flow-node">
+                <span />
+                <p>{node}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flow-stats">
+            {stats.map((item) => (
+              <div key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DashboardMockup({ palette }) {
+  const bars = [86, 72, 64, 91, 58, 76];
+  const metrics = [
+    { label: "Response", value: "63%" },
+    { label: "Knowledge", value: "2.7x" },
+    { label: "Accuracy", value: "94%" }
+  ];
+
+  return (
+    <div className="generated-art mockup-art mockup-dashboard" style={toStyleVars(palette)} aria-hidden="true">
+      <div className="mockup-orb orb-a" />
+      <div className="mockup-orb orb-b" />
+      <div className="mockup-window">
+        <div className="mockup-topbar">
+          <div className="dot-group">
+            <span />
+            <span />
+            <span />
+          </div>
+          <strong>AI Insights</strong>
+          <small>Realtime</small>
+        </div>
+        <div className="dashboard-layout">
+          <div className="dashboard-chart">
+            {bars.map((height, index) => (
+              <span key={`${height}-${index}`} style={{ height: `${height}%` }} />
+            ))}
+          </div>
+          <div className="dashboard-metrics">
+            {metrics.map((item) => (
+              <div key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ServiceArt({ type }) {
+  const palette = servicePalettes[type] || servicePalettes.chat;
+
+  if (type === "chat") {
+    return <ChatMockup palette={palette} />;
+  }
+
+  if (type === "workflow" || type === "automation") {
+    return <WorkflowMockup palette={palette} />;
+  }
+
+  return <DashboardMockup palette={palette} />;
+}
+
+export function CaseArt({ type }) {
+  const palette = casePalettes[type] || casePalettes.restaurant;
+  const bars = [70, 54, 84, 63];
+
+  return (
+    <div className="case-art" style={toStyleVars(palette)} aria-hidden="true">
+      <div className="case-orb case-orb-a" />
+      <div className="case-orb case-orb-b" />
+      <div className="case-frame">
+        <div className="case-head">
+          <strong>Scenario Outcome</strong>
+          <span>AI + Workflow</span>
+        </div>
+        <div className="case-body">
+          <div className="case-chart-bars">
+            {bars.map((height, index) => (
+              <span key={`${height}-${index}`} style={{ height: `${height}%` }} />
+            ))}
+          </div>
+          <div className="case-kpis">
+            <div>
+              <strong>+41%</strong>
+              <span>解題率</span>
+            </div>
+            <div>
+              <strong>3.2s</strong>
+              <span>回覆速度</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>服務覆蓋</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
