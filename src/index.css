@@ -2288,3 +2288,152 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================= */
+/* Layout recovery (stability)   */
+/* ============================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+header .container,
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.app-shell,
+main,
+.page,
+.section,
+.navbar,
+.nav-links,
+.footer-inner,
+.card-grid,
+.contact-layout,
+.service-simple-list,
+.case-simple-list {
+  min-width: 0;
+}
+
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.simple-section {
+  border-bottom: 1px solid #e6ecfb;
+}
+
+.simple-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.service-simple-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.service-simple-item {
+  border: 1px solid #d8e3fb;
+  border-radius: 14px;
+  background: #fff;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.service-simple-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.service-simple-head h2,
+.service-simple-head h3 {
+  margin: 0;
+  min-width: 0;
+}
+
+.case-simple-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.case-simple-item {
+  border: 1px solid #d8e3fb;
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.95rem;
+  overflow: hidden;
+}
+
+.case-simple-item h3 {
+  margin: 0 0 0.35rem;
+}
+
+.case-simple-item p {
+  margin: 0.2rem 0;
+}
+
+.contact-layout,
+.card-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 760px) {
+  section {
+    padding: 0 16px;
+  }
+
+  header .container,
+  footer .container {
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    width: 100%;
+    max-width: 300px;
+    right: 16px;
+  }
+}
