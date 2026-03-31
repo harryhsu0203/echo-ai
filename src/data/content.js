@@ -1,30 +1,36 @@
 export const services = [
   {
+    icon: "EC",
     title: "AI 客服系統（EchoChat）",
     description:
       "導入多通路智慧客服，快速回覆常見問題並提升客服效率，支援企業知識庫串接。"
   },
   {
+    icon: "AI",
     title: "企業 AI 建置",
     description:
       "從需求盤點到模型落地，協助企業打造符合營運流程的 AI 系統與部署策略。"
   },
   {
+    icon: "KB",
     title: "AI 知識庫建置",
     description:
       "整合內部文件、SOP、FAQ，建立可追溯、可維護的智慧知識平台。"
   },
   {
+    icon: "AP",
     title: "AI 串接與自動化",
     description:
       "串接 CRM、ERP、表單與通知系統，讓重複流程自動化，降低人工作業成本。"
   },
   {
+    icon: "CS",
     title: "客製化系統開發",
     description:
       "依照企業情境客製前後台與 API 架構，將 AI 能力整合進既有系統。"
   },
   {
+    icon: "AD",
     title: "AI 顧問服務",
     description:
       "提供導入評估、技術選型、教育訓練與 KPI 設計，讓 AI 專案具備可衡量成果。"
@@ -68,16 +74,28 @@ export const advantages = [
 
 export const caseStudies = [
   {
-    company: "零售品牌 A",
+    icon: "RS",
+    company: "連鎖餐飲",
+    scenario: "AI 即時回覆訂位與營業時間問題",
     result: "客服回覆時間縮短 63%，每月節省 180 小時人力。"
   },
   {
-    company: "製造企業 B",
-    result: "知識檢索效率提升 2.7 倍，跨部門交接更即時。"
+    icon: "EC",
+    company: "跨境電商",
+    scenario: "AI 回答商品、物流與退換貨流程",
+    result: "轉單率提升 21%，售前問答自動化率達 78%。"
   },
   {
-    company: "教育平台 C",
-    result: "導入 AI 助教後，學員問題解決率提升 41%。"
+    icon: "SV",
+    company: "生活服務平台",
+    scenario: "LINE 官方帳號整合預約與通知流程",
+    result: "預約流程自動化後，人工重工率下降 52%。"
+  },
+  {
+    icon: "IT",
+    company: "企業內訓部門",
+    scenario: "內部知識庫問答與 SOP 快速查詢",
+    result: "新人上手時間縮短 37%，跨部門查詢更即時。"
   }
 ];
 
@@ -95,3 +113,12 @@ export const faqs = [
     a: "可，我們可串接常見 CRM、ERP、客服與協作工具。"
   }
 ];
+
+export const impactStats = [
+  { value: "63%", label: "平均客服回覆時間縮短" },
+  { value: "2.7x", label: "知識檢索效率提升" },
+  { value: "78%", label: "常見問答自動化率" },
+  { value: "24/7", label: "AI 服務持續運作" }
+];
+
+export const trustLogos = ["Retail", "Healthcare", "FinTech", "EduTech", "Manufacture", "SaaS"];

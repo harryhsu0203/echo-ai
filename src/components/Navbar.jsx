@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const navItems = [
@@ -10,9 +10,17 @@ const navItems = [
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="navbar-wrap">
+    <header className={`navbar-wrap ${scrolled ? "is-scrolled" : ""}`}>
       <nav className="container navbar">
         <Link to="/" className="brand">
           <span className="brand-dot" />
