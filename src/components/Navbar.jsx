@@ -4,9 +4,9 @@ import EchoLogo from "./EchoLogo";
 
 const navItems = [
   { label: "首頁", to: "/" },
-  { label: "服務", to: "/services" },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" }
+  { label: "服務項目", to: "/services" },
+  { label: "關於我們", to: "/about" },
+  { label: "聯絡我們", to: "/contact" }
 ];
 
 function Navbar() {

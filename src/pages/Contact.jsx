@@ -26,14 +26,14 @@ function Contact() {
     <section className="page section">
       <div className="container contact-layout">
         <ScrollReveal className="contact-side">
-          <h1>Contact</h1>
+          <h1>聯絡我們</h1>
           <p className="lead">
-            留下需求，我們會由顧問團隊與你聯繫，協助規劃最適合的 AI 導入方案。
+            留下需求，我們會由顧問團隊與你聯繫，協助規劃最適合的人工智慧導入方案。
           </p>
           <div className="contact-notes">
             <p>• 24 小時內初步回覆</p>
             <p>• 提供導入評估與時程建議</p>
-            <p>• 可安排線上 Demo</p>
+            <p>• 可安排線上展示</p>
           </div>
         </ScrollReveal>
 
@@ -64,13 +64,13 @@ function Contact() {
             </label>
 
             <label>
-              Email
+              電子郵件
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="請輸入 Email"
+                placeholder="請輸入電子郵件"
                 required
               />
             </label>
@@ -82,7 +82,7 @@ function Contact() {
                 rows="5"
                 value={form.requirement}
                 onChange={handleChange}
-                placeholder="請描述您的 AI 導入需求"
+                placeholder="請描述您的人工智慧導入需求"
                 required
               />
             </label>

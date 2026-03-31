@@ -36,7 +36,7 @@ function EchoLogo({ mode = "full", className = "" }) {
       {icon}
       <span className="echo-logo-text">
         <strong>Echo AI</strong>
-        <small>Enterprise Intelligence</small>
+        <small>企業智慧解決方案</small>
       </span>
     </span>
   );

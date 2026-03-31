@@ -10,18 +10,18 @@ function Footer() {
             <EchoLogo mode="full" />
           </div>
           <p className="footer-text">
-            為企業打造真正能落地的 AI 解決方案，從策略到交付一站式完成。
+            為企業打造真正能落地的人工智慧解決方案，從策略到交付一站式完成。
           </p>
           <div className="footer-tags">
-            <span>Enterprise Ready</span>
-            <span>AI Integration</span>
-            <span>Custom Build</span>
+            <span>企業級導入</span>
+            <span>智慧整合</span>
+            <span>客製開發</span>
           </div>
         </div>
         <div className="footer-links">
-          <Link to="/services">服務</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/services">服務項目</Link>
+          <Link to="/about">關於我們</Link>
+          <Link to="/contact">聯絡我們</Link>
           <a
             href="https://echochat.com.tw"
             target="_blank"
@@ -31,7 +31,7 @@ function Footer() {
           </a>
         </div>
       </div>
-      <p className="footer-copy">© {new Date().getFullYear()} Echo AI. All rights reserved.</p>
+      <p className="footer-copy">© {new Date().getFullYear()} Echo AI。版權所有。</p>
     </footer>
   );
 }
