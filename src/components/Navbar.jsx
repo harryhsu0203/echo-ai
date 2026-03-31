@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import EchoLogo from "./EchoLogo";
 
 const navItems = [
   { label: "首頁", to: "/" },
@@ -23,8 +24,7 @@ function Navbar() {
     <header className={`navbar-wrap ${scrolled ? "is-scrolled" : ""}`}>
       <nav className="container navbar">
         <Link to="/" className="brand">
-          <span className="brand-dot" />
-          Echo AI
+          <EchoLogo mode="full" />
         </Link>
 
         <button

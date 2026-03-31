@@ -24,12 +24,17 @@ function Contact() {
 
   return (
     <section className="page section">
-      <div className="container contact-wrap">
-        <ScrollReveal>
+      <div className="container contact-layout">
+        <ScrollReveal className="contact-side">
           <h1>Contact</h1>
           <p className="lead">
             留下需求，我們會由顧問團隊與你聯繫，協助規劃最適合的 AI 導入方案。
           </p>
+          <div className="contact-notes">
+            <p>• 24 小時內初步回覆</p>
+            <p>• 提供導入評估與時程建議</p>
+            <p>• 可安排線上 Demo</p>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal className="contact-card" delay={0.08}>

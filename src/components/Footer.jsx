@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EchoLogo from "./EchoLogo";
 
 function Footer() {
   return (
@@ -6,8 +7,7 @@ function Footer() {
       <div className="container footer-inner">
         <div className="footer-brand-block">
           <div className="footer-logo">
-            <span className="brand-dot" />
-            <p className="footer-brand">Echo AI</p>
+            <EchoLogo mode="full" />
           </div>
           <p className="footer-text">
             為企業打造真正能落地的 AI 解決方案，從策略到交付一站式完成。
